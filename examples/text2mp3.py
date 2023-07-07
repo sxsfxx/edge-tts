@@ -16,7 +16,8 @@ async def amain(txt_file) -> None:
     """Main function"""
     path_name, file_name = os.path.split(txt_file)
     file_name, _ = os.path.splitext(file_name)
-    os.mkdir(os.path.join(path_name, file_name))
+    if not os.path.exists(os.path.join(path_name, file_name)):
+        os.mkdir(os.path.join(path_name, file_name))
     with open(txt_file, encoding="utf-8") as fr:
         text = fr.read()
         slice = 1024*16
