@@ -3,11 +3,14 @@ sys.path.append("../src")
 import edge_tts
 import asyncio
 import os
+import sys
 import math
 import random
 import datetime
 
 TXT_FILE = "边荒传说.txt"
+if len(sys.argv) == 2 and sys.argv[1].lower().endswith(".txt"):
+    TXT_FILE = sys.argv[1]
 
 async def amain(txt_file) -> None:
     """Main function"""
